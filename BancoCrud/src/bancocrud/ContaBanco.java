@@ -3,8 +3,8 @@ package bancocrud;
 import javax.swing.JOptionPane;
 
 public class ContaBanco {
-    public String cpf;
-    protected String tipo;
+    private String cpf;
+    private String tipo;
     private String dono;
     private float saldo;
     private boolean status;
