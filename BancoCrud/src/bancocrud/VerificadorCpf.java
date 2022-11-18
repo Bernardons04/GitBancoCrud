@@ -38,7 +38,6 @@ public class VerificadorCpf {
                 verificador3[1] == verificador3[7] &&
                 verificador3[1] == verificador3[8] &&
                 verificador3[1] == verificador3[9]) {
-            //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
             this.setExiste(false);
             System.exit(0);
         }
@@ -57,7 +56,7 @@ public class VerificadorCpf {
                     multiplicador--;
                 }
 
-                //System.out.println(soma3Cpf);
+
 
                 int numeroVerificador = 0;
                 soma3Cpf = soma3Cpf % 11;
@@ -65,10 +64,8 @@ public class VerificadorCpf {
                 if (soma3Cpf == 0 || soma3Cpf == 1) {
                     numeroVerificador = 0;
                     if (numeroVerificador == verificador2) {
-                        //JOptionPane.showMessageDialog(null, "Cpf válido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(true);
                     } else {
-                        //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(false);
                     }
                 } else if (soma3Cpf >= 2) {
@@ -83,15 +80,12 @@ public class VerificadorCpf {
                     int resultado = 11 - (soma3Cpf % 11);
 
                     if (resultado == verificador2) {
-                        //JOptionPane.showMessageDialog(null, "Cpf válido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(true);
                     } else {
-                        //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(false);
                     }
                 }
             } else {
-                //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                 this.setExiste(false);
             }
             //1 verificador terminado
@@ -113,31 +107,24 @@ public class VerificadorCpf {
                 if (resultado >= 2) {
                     int calculo = 11 - resultado;
                     if (calculo == verificador2) {
-                        //JOptionPane.showMessageDialog(null, "Cpf válido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(true);
                     } else {
-                        //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(false);
                     }
                 } else if (resultado == 0 || resultado == 1) {
                     int number11 = 0;
                     if (verificador2 == number11) {
-                        //JOptionPane.showMessageDialog(null, "Cpf válido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(true);
                     } else {
-                        //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                         this.setExiste(false);
                     }
                 } else {
-                    //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                     this.setExiste(false);
                 }
             } else {
-                //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
                 this.setExiste(false);
             }
         } else {
-            //JOptionPane.showMessageDialog(null, "Cpf inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
             this.setExiste(false);
         }
         return null;

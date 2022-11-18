@@ -8,6 +8,8 @@ public class ContaBanco {
     private String dono;
     private float saldo;
     private boolean status;
+    
+    VerificadorCpf verificador = new VerificadorCpf();
 
     public void mostrarEstadoAtual(){
         JOptionPane.showMessageDialog(null, "------------------------------" 
@@ -75,6 +77,13 @@ public class ContaBanco {
     }
     public void setCpf(String n) {
         this.cpf = n;
+        verificador.verificarCpf(cpf);
+        if (verificador.getExiste() == true) {
+            this.cpf = n;
+        } else if (verificador.getExiste() == false) {
+            this.cpf = "";
+            JOptionPane.showMessageDialog(null, "CPF inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }
     public String getTipo() {
         return tipo;

@@ -3,11 +3,8 @@ package bancocrud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
 public class CrudFactory {
@@ -36,7 +33,6 @@ public class CrudFactory {
                 JOptionPane.showMessageDialog(null, "Conta aberta com sucesso!");
             } else if (verificador.getExiste() == false) {
                 JOptionPane.showMessageDialog(null, "Não foi possível inserir a pessoa no banco, CPF inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
-                //JOptionPane.showMessageDialog(null,"Não foi possível inserir a pessoa no banco, CPF inválido!");
             }
 	} catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Não foi possível inserir a pessoa no banco!");
@@ -100,6 +96,7 @@ public class CrudFactory {
 
                 pstmt.execute();
                 pstmt.close();
+                JOptionPane.showMessageDialog(null, "Conta fechada com sucesso");
             } catch (Exception e) {
                 System.err.println("Não foi possível remover a pessoa do banco!");
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());

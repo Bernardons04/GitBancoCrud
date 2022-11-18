@@ -13,7 +13,6 @@ public class BancoCrud {
         CrudFactory crud = new CrudFactory();
         ContaBanco usuario1 = new ContaBanco();
         List<ContaBanco> contas = new ArrayList<ContaBanco>();
-        VerificadorCpf verificador = new VerificadorCpf();
         
         String nome;
         String tipo;
@@ -24,7 +23,7 @@ public class BancoCrud {
         int busca = 0;
         int opção;
         int opção2;
-        
+
         do { 
             opção = Integer.parseInt(JOptionPane.showInputDialog("Digite 1, caso você queira abrir uma conta.\n" 
                     + "\nDigite 2, caso você já tenha uma conta e queira acessa-la.\n" 
@@ -34,19 +33,18 @@ public class BancoCrud {
                 nome = JOptionPane.showInputDialog("Digite o seu nome: ");
                 usuario1.setDono(nome);
                 
-                cpf = JOptionPane.showInputDialog("Digite o seu CPF(somente os números): ");
-                usuario1.setCpf(cpf);
-                verificador.verificarCpf(cpf);
-                
                 tipo = JOptionPane.showInputDialog("Digite CC, caso você queira uma conta corrente, " 
                         + "\ne CP, caso você queira uma conta poupança.");
+                
+                cpf = JOptionPane.showInputDialog("Digite o seu CPF(somente os números): ");
+                usuario1.setCpf(cpf);
                 
                 usuario1.abrirConta(tipo);                
                 crud.adicionar(usuario1);
             } else if (opção == 2) {
                 cpf = JOptionPane.showInputDialog("Digite o seu CPF(somente os números): ");
                 usuario1.setCpf(cpf);
-                verificador.verificarCpf(cpf);
+                
                 if (contas == null) {
                     JOptionPane.showMessageDialog(null, "Conta inexistente!");
                 } else {
@@ -73,14 +71,18 @@ public class BancoCrud {
                             crud.atualizar(usuario1);
                         } else if (opção2 == 4) {
                             for (int i = 0; i < contas.size(); i++) {
-                                if (contas.get(i).getCpf() == cpf) {
-                                    nome = JOptionPane.showInputDialog("Digite o seu nome: ");
-                                    usuario1.setDono(nome);
-                                    tipo = JOptionPane.showInputDialog("Digite CC, caso você queira uma conta corrente, " 
-                                            + "\ne CP, caso você queira uma conta poupança.");
-                                    usuario1.setTipo(tipo);
-                                    crud.atualizar(usuario1);
-                                    break;
+                                if (contas.get(i).getCpf().equals(cpf)) {
+                                    try {
+                                        nome = JOptionPane.showInputDialog("Digite o seu nome: ");
+                                        usuario1.setDono(nome);
+                                        tipo = JOptionPane.showInputDialog("Digite CC, caso você queira uma conta corrente, " 
+                                                + "\ne CP, caso você queira uma conta poupança.");
+                                        usuario1.setTipo(tipo);
+                                        crud.atualizar(usuario1);
+                                        break;
+                                    } catch(Exception e) {
+                            
+                                    }
                                 }
                             }
                         }
@@ -91,10 +93,14 @@ public class BancoCrud {
                 usuario1.setCpf(cpf);
                 
                 for (int i = 0; i < contas.size(); i++) {
-                    if (contas.get(i).getCpf() == cpf) {
-                        busca = 1;
-                        crud.remover(usuario1);
-                        break;
+                    if (contas.get(i).getCpf().equals(cpf)) {
+                        try {
+                            busca = 1;
+                            crud.remover(usuario1);
+                            break;
+                        } catch(Exception e) {
+                            
+                        }
                     }
 		}
                 if (busca == 0) {
