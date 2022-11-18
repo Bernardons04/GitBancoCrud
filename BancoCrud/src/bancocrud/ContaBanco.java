@@ -75,6 +75,7 @@ public class ContaBanco {
     public String getCpf() {
         return cpf;
     }
+<<<<<<< HEAD
     public void setCpf(String n) {
         this.cpf = n;
         verificador.verificarCpf(cpf);
@@ -84,6 +85,10 @@ public class ContaBanco {
             this.cpf = "";
             JOptionPane.showMessageDialog(null, "CPF inválido!", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
+=======
+    public void setCpf(String n) {    
+            this.cpf = n;
+>>>>>>> d444d6f674c7a76d019e682b9bb661a10150fb93
     }
     public String getTipo() {
         return tipo;
@@ -114,4 +119,9 @@ public class ContaBanco {
     public void setStatus(boolean status) {
         this.status = status;
     }   
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> d444d6f674c7a76d019e682b9bb661a10150fb93
